@@ -1,6 +1,6 @@
 
-[ -z $PASSWD ] && PASSWD='some_password'
-[ -z $PROXY_USER ] && PROXY_USER='proxy_user'
+[ -z $PASSWD ] && PASSWD='openssl rand -base64 14'
+[ -z $PROXY_USER ] && PROXY_USER='openssl rand -hex 8'
 
 mkdir -p /etc/squid
 encrypt_pwd=`openssl passwd -apr1 $PASSWD`
@@ -11,4 +11,4 @@ chmod 600 /etc/squid/htpasswd
 echo "user: $PROXY_USER"
 echo "passwd: $PASSWD"
 
-exec /squid/sbin/squid -f /etc/squid/squid.conf -N
+exec squid -f /etc/squid/squid.conf -N
