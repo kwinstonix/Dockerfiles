@@ -2,7 +2,7 @@
 set -e
 set -x
 
-VERSION=5.6.3
+VERSION=5.8.1
 
 BUILD_DIR='/tmp/build'
 INSTALL_DIR='/usr/local'
